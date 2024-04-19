@@ -8,6 +8,8 @@
       $this->name = $name;
     }
 
+    abstract public static function list($file_path) : Array;
+
     abstract public function add_resource() : string;
   }
 ?>
