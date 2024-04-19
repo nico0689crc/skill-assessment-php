@@ -11,26 +11,23 @@
       $this->brand = $brand;
     }
 
-    public static function list($file_path) : Array {
-      $other_resources = [];
-      $json_data = file_get_contents($file_path);
-      $data = json_decode($json_data, true);
-      
-      if ($data == null) {
-        echo "Error decoding JSON file.";
-      }
-
-      foreach ($data as $item) {
-        if(isset($item['type']) and $item['type'] == self::$type) {
-          $other_resources[] = new OtherResource($item['id'], $item['name'], $item['description'], $item['brand']);
+    public static function list() : Array {
+      try {
+        $other_resources = [];
+        $data = parent::read_resources_from_json();
+  
+        foreach ($data as $item) {
+          if(isset($item['type']) and $item['type'] == self::$type) {
+            $other_resources[] = new OtherResource($item['id'], $item['name'], $item['description'], $item['brand']);
+          }
         }
+        
+        return $other_resources;
+      } catch (Exception $exception) {
+        throw new Exception($exception->getMessage() . "\n");
       }
-      
-      return $other_resources;
     }
 
-    public function add_resource () : string {
-      return "OtherResource";
-    }
+    public static function create() : void { }
   }
 ?>

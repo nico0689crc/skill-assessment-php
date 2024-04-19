@@ -1,5 +1,9 @@
 <?php
   include 'classes/includes.php';
 
-  Application::initialize();
+  try {
+    Application::initialize();
+  } catch (Exception $exception) {
+    echo Application::set_color_to_text("Message: " . $exception->getMessage(), "BLUE");
+  }
 ?>
