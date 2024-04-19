@@ -2,7 +2,9 @@
   abstract class LibraryResource {
     public $id;
     public $name;
-    protected static $resources_file_path = 'data/resourcess.json';
+    public $type;
+    
+    protected static $resources_file_path = 'data/resources.json';
 
     public function __construct($id, $name) {
       $this->id = $id;

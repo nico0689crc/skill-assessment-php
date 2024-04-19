@@ -39,7 +39,11 @@
       }
     }
 
-    private static function create_books() {}
+    private static function create_books() {
+      Book::create();
+
+      echo self::set_color_to_text("Book created succesfully. \n", "GREEN");
+    }
 
     // Other Resource's methods
 
@@ -51,7 +55,11 @@
       }
     }
 
-    private static function create_other_resources() {}
+    private static function create_other_resources() {
+      OtherResource::create();
+
+      echo self::set_color_to_text("Resource created succesfully. \n", "GREEN");
+    }
 
 
     public static function set_color_to_text($text, $color) {
