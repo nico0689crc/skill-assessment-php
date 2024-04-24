@@ -93,5 +93,25 @@
 
       return $books;
     }
+
+    public static function searchByID() {
+      $books = self::list();
+      $index = -1;
+
+      $book_id = readline(Application::setColorToText("Insert the ID of the Book to search: ", "GREEN"));
+
+      foreach ($books as $key => $book) {
+        if($book->id == $book_id){
+          $index = $key;
+          break;
+        }
+      }
+
+      if($index >= 0) {
+        return $books[$index];
+      } else {
+        return false;
+      }
+    }
   }
 ?>

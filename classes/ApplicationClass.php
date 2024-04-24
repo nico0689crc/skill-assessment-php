@@ -8,20 +8,20 @@
       echo self::setColorToText("*****        BOOK       *****\n", "GREEN");
       echo self::setColorToText("*****************************\n", "GREEN");
 
-      echo "** 1 - List Books \n";
-      echo "** 2 - Create Books \n";
-      echo "** 3 - Delete Book by ID \n";
+      echo "** 1 - List Books - DONE \n";
+      echo "** 2 - Create Books - DONE \n";
+      echo "** 3 - Delete Book by ID - DONE \n";
       echo "** 4 - Search Book by ID \n";
-      echo "** 5 - Sort Books in Ascending Order \n";
-      echo "** 6 - Sort Books in Descending Order \n";
+      echo "** 5 - Sort Books in Ascending Order - DONE \n";
+      echo "** 6 - Sort Books in Descending Order - DONE \n";
 
       echo self::setColorToText("*****************************\n", "GREEN");
       echo self::setColorToText("*****    RESOURECES     *****\n", "GREEN");
       echo self::setColorToText("*****************************\n", "GREEN");
 
-      echo "** 7 - List Other Resources \n";
-      echo "** 8 - Create Other Resource \n";
-      echo "** 9 - Delete Resource by ID \n";
+      echo "** 7 - List Other Resources - DONE \n";
+      echo "** 8 - Create Other Resource - DONE \n";
+      echo "** 9 - Delete Resource by ID - DONE \n";
 
       $option = readline(self::setColorToText("Enter your option: ", "YELLOW"));
 
@@ -76,11 +76,20 @@
 
     private static function deleteBook() {
       Book::delete();
+
+      echo self::setColorToText("Book created succesfully. \n", "GREEN");
     }
 
     private static function searchBook() {
-      echo "Search Book by ID \n";
+      $book = Book::searchByID();
+
+      if($book !== false){
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+      } else {
+        echo self::setColorToText("Book could not be found. \n", "RED");
+      }
     }
+
     // Other Resource's methods
 
     private static function listOtherResources() {
@@ -99,10 +108,6 @@
 
     private static function deleteResource() {
       OtherResource::delete();
-    }
-
-    private static function searchResource() {
-      echo "Search Resource by ID \n";
     }
 
     private static function sortBooksAsc() {
