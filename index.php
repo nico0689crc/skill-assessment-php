@@ -4,6 +4,6 @@
   try {
     Application::initialize();
   } catch (Exception $exception) {
-    echo Application::set_color_to_text("Message: " . $exception->getMessage(), "RED");
+    echo Application::setColorToText("Message: " . $exception->getMessage(), "RED");
   }
 ?>

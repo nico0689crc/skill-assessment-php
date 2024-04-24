@@ -13,16 +13,16 @@
 
       switch ($option) {
         case 1:
-          Application::list_books();
+          Application::listBooks();
           break;
         case 2:
-          Application::list_other_resources();
+          Application::listOtherResources();
           break;
         case 3:
-          Application::create_books();
+          Application::createBooks();
           break;
         case 4:
-          Application::create_other_resources();
+          Application::createOtherResources();
           break;
         default:
           echo "Your selection did not match with any option. Bye asshole! \n";
@@ -31,7 +31,7 @@
 
     // Book's methods
 
-    private static function list_books() {
+    private static function listBooks() {
       $books = Book::list();
 
       foreach ($books as $book) {
@@ -39,15 +39,15 @@
       }
     }
 
-    private static function create_books() {
+    private static function createBooks() {
       Book::create();
 
-      echo self::set_color_to_text("Book created succesfully. \n", "GREEN");
+      echo self::setColorToText("Book created succesfully. \n", "GREEN");
     }
 
     // Other Resource's methods
 
-    private static function list_other_resources() {
+    private static function listOtherResources() {
       $resources = OtherResource::list();
 
       foreach ($resources as $resource) {
@@ -55,14 +55,14 @@
       }
     }
 
-    private static function create_other_resources() {
+    private static function createOtherResources() {
       OtherResource::create();
 
-      echo self::set_color_to_text("Resource created succesfully. \n", "GREEN");
+      echo self::setColorToText("Resource created succesfully. \n", "GREEN");
     }
 
 
-    public static function set_color_to_text($text, $color) {
+    public static function setColorToText($text, $color) {
       switch ($color) {
         case 'RED':
           return "\033[0;31m" . $text . "\033[0m";

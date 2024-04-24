@@ -58,5 +58,27 @@
         "isbn": "assdasdadsd",
         "publisher": "asdadsadsads",
         "author": "asdsaddsadsads"
+    },
+    {
+        "id": 9,
+        "name": "asddas",
+        "type": "BOOK",
+        "isbn": "asd",
+        "publisher": "asdd",
+        "author": "asdd"
+    },
+    {
+        "id": 10,
+        "name": "",
+        "type": "OTHER",
+        "description": "",
+        "brand": ""
+    },
+    {
+        "id": 11,
+        "name": "",
+        "type": "OTHER",
+        "description": "",
+        "brand": ""
     }
 ]
