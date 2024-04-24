@@ -66,19 +66,5 @@
         "isbn": "asd",
         "publisher": "asdd",
         "author": "asdd"
-    },
-    {
-        "id": 10,
-        "name": "",
-        "type": "OTHER",
-        "description": "",
-        "brand": ""
-    },
-    {
-        "id": 11,
-        "name": "",
-        "type": "OTHER",
-        "description": "",
-        "brand": ""
     }
 ]

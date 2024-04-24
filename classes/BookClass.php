@@ -35,21 +35,12 @@
     public static function create() : void {
       try {
         $resources = parent::readResourcesFromJson();
-        $handle = fopen ("php://stdin","r");
 
         $id = count($resources) + 1;
-
-        echo Application::setColorToText("Insert the Title of the book: \n", "GREEN");
-        $name = rtrim(fgets($handle), "\r\n");
-
-        echo Application::setColorToText("Insert the ISBN of the book: \n", "GREEN");
-        $isbn = rtrim(fgets($handle), "\r\n");
-
-        echo Application::setColorToText("Insert the Publisher of the book: \n", "GREEN");
-        $publisher = rtrim(fgets($handle), "\r\n");
-
-        echo Application::setColorToText("Insert the Author of the book: \n", "GREEN");
-        $author = rtrim(fgets($handle), "\r\n");
+        $name = readline(Application::setColorToText("Insert the Title of the book: ", "GREEN"));
+        $isbn = readline(Application::setColorToText("Insert the ISBN of the book: ", "GREEN"));
+        $publisher = readline(Application::setColorToText("Insert the Publisher of the book: ", "GREEN"));
+        $author = readline(Application::setColorToText("Insert the Author of the book: ", "GREEN"));
 
         $resources[] = new Book($id, $name, $isbn, $publisher, $author);
 
@@ -57,6 +48,34 @@
       } catch (Exception $exception) {
         throw new Exception($exception->getMessage() . "\n");
       }
-    }    
+    }
+    
+    public static function delete() : void {
+      try {
+        $books = parent::readResourcesFromJson();
+        $index = -1;
+
+        $book_id = readline(Application::setColorToText("Insert the ID of the Book to delete: ", "GREEN"));
+
+        foreach ($books as $key => $book) {
+          if($book['id'] == $book_id and $book['type'] == 'BOOK'){
+            $index = $key;
+            break;
+          }
+        }
+
+        if($index >= 0) {
+          unset($books[$index]);
+
+          LibraryResource::saveResourcesToJson($books);
+  
+          echo Application::setColorToText("<< Book of ID ". $book_id ." deleted successfully >> \n", "GREEN");
+        } else {
+          echo Application::setColorToText("<< Book could not be find >> \n", "RED");
+        }
+      } catch (Exception $exception) {
+        throw new Exception($exception->getMessage() . "\n");
+      }
+    }
   }
 ?>

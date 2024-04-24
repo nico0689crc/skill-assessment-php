@@ -3,26 +3,51 @@
 
     public static function initialize() {
       echo "Insert the action you want to perform: \n";
-      echo "** 1 - List Books \n";
-      echo "** 2 - List Other Resources \n";
-      echo "** 3 - Create Books \n";
-      echo "** 4 - Create Other Resources \n";
 
-      $handle = fopen ("php://stdin","r");
-      $option = fgets($handle);
+      echo self::setColorToText("*****************************\n", "GREEN");
+      echo self::setColorToText("*****        BOOK       *****\n", "GREEN");
+      echo self::setColorToText("*****************************\n", "GREEN");
+
+      echo "** 1 - List Books \n";
+      echo "** 2 - Create Books \n";
+      echo "** 3 - Delete Book by ID \n";
+      echo "** 4 - Search Book by ID \n";
+
+      echo self::setColorToText("*****************************\n", "GREEN");
+      echo self::setColorToText("*****    RESOURECES     *****\n", "GREEN");
+      echo self::setColorToText("*****************************\n", "GREEN");
+
+      echo "** 5 - List Other Resources \n";
+      echo "** 6 - Create Other Resource \n";
+      echo "** 7 - Delete Resource by ID \n";
+      echo "** 8 - Search Resource by ID \n";
+
+      $option = readline(self::setColorToText("Enter your option: ", "YELLOW"));
 
       switch ($option) {
         case 1:
           Application::listBooks();
           break;
         case 2:
-          Application::listOtherResources();
-          break;
-        case 3:
           Application::createBooks();
           break;
+        case 3:
+          Application::deleteBook();
+          break;
         case 4:
+          Application::searchBook();
+          break;
+        case 5:
+          Application::listOtherResources();
+          break;
+        case 6:
           Application::createOtherResources();
+          break;
+        case 7:
+          Application::deleteResource();
+          break;
+        case 8:
+          Application::searchResource();
           break;
         default:
           echo "Your selection did not match with any option. Bye asshole! \n";
@@ -45,6 +70,13 @@
       echo self::setColorToText("Book created succesfully. \n", "GREEN");
     }
 
+    private static function deleteBook() {
+      Book::delete();
+    }
+
+    private static function searchBook() {
+      echo "Search Book by ID \n";
+    }
     // Other Resource's methods
 
     private static function listOtherResources() {
@@ -61,6 +93,13 @@
       echo self::setColorToText("Resource created succesfully. \n", "GREEN");
     }
 
+    private static function deleteResource() {
+      OtherResource::delete();
+    }
+
+    private static function searchResource() {
+      echo "Search Resource by ID \n";
+    }
 
     public static function setColorToText($text, $color) {
       switch ($color) {
@@ -76,6 +115,5 @@
           return $text;
       }
     }
-
   }
 ?>

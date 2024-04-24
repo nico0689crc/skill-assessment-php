@@ -15,15 +15,7 @@
 
     abstract public static function create() : void;
 
-    public static function delete($resource_id) {
-      try {
-        $resources = self::readResourcesFromJson();
-
-        print_r($resources);
-      } catch (Exception $exception) {
-        throw new Exception($exception->getMessage() . "\n");
-      }
-    }
+    abstract public static function delete() : void;
     
     protected static function saveResourcesToJson($resources) {
       try {

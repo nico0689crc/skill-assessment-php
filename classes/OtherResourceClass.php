@@ -33,22 +33,43 @@
     public static function create() : void { 
       try {
         $resources = parent::readResourcesFromJson();
-        $handle = fopen ("php://stdin","r");
 
         $id = count($resources) + 1;
-
-        echo Application::setColorToText("Insert the Name of the resource: \n", "GREEN");
-        $name = rtrim(fgets($handle), "\r\n");
-
-        echo Application::setColorToText("Insert the Description of the resource: \n", "GREEN");
-        $description = rtrim(fgets($handle), "\r\n");
-
-        echo Application::setColorToText("Insert the Brand of the resource: \n", "GREEN");
-        $brand = rtrim(fgets($handle), "\r\n");
+        $name = readline(Application::setColorToText("Insert the Name of the resource: ", "GREEN"));
+        $description = readline(Application::setColorToText("Insert the Description of the resource: ", "GREEN"));
+        $brand = readline(Application::setColorToText("Insert the Brand of the resource: ", "GREEN"));
 
         $resources[] = new OtherResource($id, $name, $description, $brand);
 
         parent::saveResourcesToJson($resources);
+      } catch (Exception $exception) {
+        throw new Exception($exception->getMessage() . "\n");
+      }
+    }
+
+    public static function delete() : void {
+      try {
+        $other_resources = parent::readResourcesFromJson();
+        $index = -1;
+
+        $other_resource_id = readline(Application::setColorToText("Insert the ID of the Other Resource to delete: ", "GREEN"));
+
+        foreach ($other_resources as $key => $other_resource) {
+          if($other_resource['id'] == $other_resource_id and $other_resource['type'] == 'OTHER'){
+            $index = $key;
+            break;
+          }
+        }
+
+        if($index >= 0) {
+          unset($other_resources[$index]);
+
+          LibraryResource::saveResourcesToJson($other_resources);
+  
+          echo Application::setColorToText("<< Other Resource of ID ". $other_resource_id ." deleted successfully. >> \n", "GREEN");
+        } else {
+          echo Application::setColorToText("<< Other Resource could not be find. >> \n", "RED");
+        }
       } catch (Exception $exception) {
         throw new Exception($exception->getMessage() . "\n");
       }
