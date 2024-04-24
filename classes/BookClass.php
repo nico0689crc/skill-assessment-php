@@ -77,5 +77,21 @@
         throw new Exception($exception->getMessage() . "\n");
       }
     }
+
+    public static function sort($type) {
+      $books = self::list();
+
+      if($type == "ASC") {
+        usort($books, function($a, $b) {
+          return $a->id - $b->id;
+        });
+      } else {
+        usort($books, function($a, $b) {
+          return $b->id - $a->id;
+        });
+      }
+
+      return $books;
+    }
   }
 ?>

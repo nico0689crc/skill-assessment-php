@@ -12,15 +12,16 @@
       echo "** 2 - Create Books \n";
       echo "** 3 - Delete Book by ID \n";
       echo "** 4 - Search Book by ID \n";
+      echo "** 5 - Sort Books in Ascending Order \n";
+      echo "** 6 - Sort Books in Descending Order \n";
 
       echo self::setColorToText("*****************************\n", "GREEN");
       echo self::setColorToText("*****    RESOURECES     *****\n", "GREEN");
       echo self::setColorToText("*****************************\n", "GREEN");
 
-      echo "** 5 - List Other Resources \n";
-      echo "** 6 - Create Other Resource \n";
-      echo "** 7 - Delete Resource by ID \n";
-      echo "** 8 - Search Resource by ID \n";
+      echo "** 7 - List Other Resources \n";
+      echo "** 8 - Create Other Resource \n";
+      echo "** 9 - Delete Resource by ID \n";
 
       $option = readline(self::setColorToText("Enter your option: ", "YELLOW"));
 
@@ -38,16 +39,19 @@
           Application::searchBook();
           break;
         case 5:
-          Application::listOtherResources();
+          Application::sortBooksAsc();
           break;
         case 6:
-          Application::createOtherResources();
+          Application::sortBooksDesc();
           break;
         case 7:
-          Application::deleteResource();
+          Application::listOtherResources();
           break;
         case 8:
-          Application::searchResource();
+          Application::createOtherResources();
+          break;
+        case 9:
+          Application::deleteResource();
           break;
         default:
           echo "Your selection did not match with any option. Bye asshole! \n";
@@ -99,6 +103,22 @@
 
     private static function searchResource() {
       echo "Search Resource by ID \n";
+    }
+
+    private static function sortBooksAsc() {
+      $books = Book::sort("ASC");
+
+      foreach ($books as $book) {
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+      }
+    }
+
+    private static function sortBooksDesc() {
+      $books = Book::sort("DESC");
+
+      foreach ($books as $book) {
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+      }
     }
 
     public static function setColorToText($text, $color) {
