@@ -64,7 +64,7 @@
       $books = Book::list();
 
       foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
       }
     }
 
@@ -76,15 +76,13 @@
 
     private static function deleteBook() {
       Book::delete();
-
-      echo self::setColorToText("Book created succesfully. \n", "GREEN");
     }
 
     private static function searchBook() {
       $book = Book::searchByID();
 
       if($book !== false){
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
       } else {
         echo self::setColorToText("Book could not be found. \n", "RED");
       }
@@ -114,7 +112,7 @@
       $books = Book::sort("ASC");
 
       foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
       }
     }
 
@@ -122,7 +120,7 @@
       $books = Book::sort("DESC");
 
       foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author} \n";
+        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
       }
     }
 

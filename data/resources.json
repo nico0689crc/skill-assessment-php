@@ -1,70 +1,24 @@
 [
     {
-        "id": 1,
-        "name": "Book 1",
-        "isbn": "1234567890",
-        "author": "Author 1",
-        "publisher": "Ateneo",
-        "type": "BOOK"
+        "id": 10,
+        "name": "Libro 1",
+        "type": "BOOK",
+        "isbn": "12333333",
+        "publisher": "Ligbbbb",
+        "author": {
+            "id": 1,
+            "name": "Nicolas"
+        }
     },
     {
         "id": 2,
-        "name": "Book 2",
-        "isbn": "0987654321",
-        "author": "Author 2",
-        "publisher": "Bulgary",
-        "type": "BOOK"
-    },
-    {
-        "id": 3,
-        "name": "Book 3",
-        "isbn": "067654321",
-        "author": "Author 3",
-        "publisher": "Inc. St.",
-        "type": "BOOK"
-    },
-    {
-        "id": 4,
-        "name": "Chair",
-        "description": "deeply more gray cap camera closely neighbor breathe piece naturally fierce meat fireplace thing leg train establish space angle darkness silk right invented supply",
-        "brand": "Ikea",
-        "type": "OTHER"
-    },
-    {
-        "id": 5,
-        "name": "Table",
-        "description": "church progress climb sun rapidly hole pleasant plenty came coach held material disappear slept foreign him knowledge meal thee terrible order does physical careful",
-        "brand": "Waltmart",
-        "type": "OTHER"
-    },
-    {
-        "id": 6,
-        "name": "Car",
-        "description": "detail me ill bad reader yet return compass rocket claws anywhere its nose underline written clear eye sent spoken bit barn pack machine car",
-        "brand": "Toyoya",
-        "type": "OTHER"
-    },
-    {
-        "id": 7,
-        "name": "dsadsadsadsaads",
-        "type": "OTHER",
-        "description": "asdsaqe213123231213",
-        "brand": "135777fdsf"
-    },
-    {
-        "id": 8,
-        "name": "asdqwew",
+        "name": "Libro 1",
         "type": "BOOK",
-        "isbn": "assdasdadsd",
-        "publisher": "asdadsadsads",
-        "author": "asdsaddsadsads"
-    },
-    {
-        "id": 9,
-        "name": "asddas",
-        "type": "BOOK",
-        "isbn": "asd",
-        "publisher": "asdd",
-        "author": "asdd"
+        "isbn": "12321321",
+        "publisher": "Publisher 1",
+        "author": {
+            "id": 1,
+            "name": "Nicolas"
+        }
     }
 ]

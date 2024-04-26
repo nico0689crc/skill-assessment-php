@@ -22,7 +22,7 @@
   
         foreach ($resources as $resource) {
           if(isset($resource['type']) and $resource['type'] == self::$entity) {
-            $books[] = new Book($resource['id'], $resource['name'], $resource['isbn'], $resource['publisher'], $resource['author']);
+            $books[] = new Book($resource['id'], $resource['name'], $resource['isbn'], $resource['publisher'], new Author($resource['author']['id'], $resource['author']['name']));
           }
         }
         
@@ -40,7 +40,9 @@
         $name = readline(Application::setColorToText("Insert the Title of the book: ", "GREEN"));
         $isbn = readline(Application::setColorToText("Insert the ISBN of the book: ", "GREEN"));
         $publisher = readline(Application::setColorToText("Insert the Publisher of the book: ", "GREEN"));
-        $author = readline(Application::setColorToText("Insert the Author of the book: ", "GREEN"));
+        $author_input = readline(Application::setColorToText("Insert the Author of the book: ", "GREEN"));
+
+        $author = new Author(1, $author_input);
 
         $resources[] = new Book($id, $name, $isbn, $publisher, $author);
 
