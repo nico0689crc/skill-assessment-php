@@ -1,0 +1,3 @@
+Commands:
+- Run the program: php index.php
+- Run testings: ./vendor/bin/phpunit

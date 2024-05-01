@@ -2,9 +2,9 @@
   class Book extends LibraryResource {
     private static $entity = "BOOK";
     
-    public $isbn;
-    public $publisher;
-    public $author;
+    private $isbn;
+    private $publisher;
+    private $author;
 
     public function __construct($id, $name, $isbn, $publisher, $author) {
       $this->id = $id;
@@ -13,6 +13,18 @@
       $this->publisher = $publisher;
       $this->author = $author;
       $this->type = self::$entity;
+    }
+
+    public function getIsbn() {
+      return $this->isbn;
+    }
+
+    public function getPublisher() {
+      return $this->publisher;
+    }
+
+    public function getAuthor() {
+      return $this->author;
     }
 
     public static function list() : Array {

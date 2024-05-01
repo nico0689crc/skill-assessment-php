@@ -9,16 +9,5 @@
             "id": 1,
             "name": "Nicolas"
         }
-    },
-    {
-        "id": 2,
-        "name": "Libro 1",
-        "type": "BOOK",
-        "isbn": "12321321",
-        "publisher": "Publisher 1",
-        "author": {
-            "id": 1,
-            "name": "Nicolas"
-        }
     }
 ]

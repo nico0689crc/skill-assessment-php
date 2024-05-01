@@ -1,14 +1,30 @@
 <?php 
   abstract class LibraryResource {
-    public $id;
-    public $name;
-    public $type;
+    protected $id;
+    protected $name;
+    protected $type;
     
     protected static $resourcesFilePath = 'data/resources.json';
 
     public function __construct($id, $name) {
       $this->id = $id;
       $this->name = $name;
+    }
+
+    public function getId() {
+      return $this->id;
+    }
+
+    public function setId($id) {
+      $this->id = $id;
+    }
+
+    public function getName() {
+      return $this->name;
+    }
+
+    public function getType() {
+      return $this->type;
     }
 
     abstract public static function list() : Array;
