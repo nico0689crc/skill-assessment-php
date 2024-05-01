@@ -55,8 +55,19 @@
         $author_input = readline(Application::setColorToText("Insert the Author of the book: ", "GREEN"));
 
         $author = new Author(1, $author_input);
+        $book = new Book($id, $name, $isbn, $publisher, $author);
 
-        $resources[] = new Book($id, $name, $isbn, $publisher, $author);
+        $resources[] = Array(
+          "id" => $book->getId(),
+          "name" => $book->getName(),
+          "type" => $book->getType(),
+          "isbn" => $book->getIsbn(),
+          "publisher" => $book->getPublisher(),
+          "author" => Array(
+            "id" => $book->getAuthor()->getId(),
+            "name" => $book->getAuthor()->getName(),
+          )
+        );
 
         parent::saveResourcesToJson($resources);
       } catch (Exception $exception) {

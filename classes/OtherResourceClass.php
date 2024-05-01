@@ -2,8 +2,8 @@
   class OtherResource extends LibraryResource {
     private static $entity = "OTHER";
 
-    public $description;
-    public $brand;
+    private $description;
+    private $brand;
 
     public function __construct($id, $name, $description, $brand) {
       $this->id = $id;
@@ -11,6 +11,14 @@
       $this->description = $description;
       $this->brand = $brand;
       $this->type = self::$entity;
+    }
+
+    public function getDescription() {
+      return $this->description;
+    }
+
+    public function getBrand() {
+      return $this->brand;
     }
 
     public static function list() : Array {
@@ -39,7 +47,15 @@
         $description = readline(Application::setColorToText("Insert the Description of the resource: ", "GREEN"));
         $brand = readline(Application::setColorToText("Insert the Brand of the resource: ", "GREEN"));
 
-        $resources[] = new OtherResource($id, $name, $description, $brand);
+        $other_resources = new OtherResource($id, $name, $description, $brand);
+
+        $resources[] = Array(
+          "id" => $other_resources->getId(),
+          "name" => $other_resources->getName(),
+          "type" => $other_resources->getType(),
+          "description" => $other_resources->getDescription(),
+          "brand" => $other_resources->getBrand(),
+        );
 
         parent::saveResourcesToJson($resources);
       } catch (Exception $exception) {

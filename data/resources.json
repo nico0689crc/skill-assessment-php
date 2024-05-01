@@ -1,13 +1,1 @@
-[
-    {
-        "id": 10,
-        "name": "Libro 1",
-        "type": "BOOK",
-        "isbn": "12333333",
-        "publisher": "Ligbbbb",
-        "author": {
-            "id": 1,
-            "name": "Nicolas"
-        }
-    }
-]
+[]

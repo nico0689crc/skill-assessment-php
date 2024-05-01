@@ -15,10 +15,6 @@
       return $this->id;
     }
 
-    public function setId($id) {
-      $this->id = $id;
-    }
-
     public function getName() {
       return $this->name;
     }
@@ -48,9 +44,9 @@
         $data = json_decode($json_data, true);
         
         if ($data == null) {
-          throw new Exception("JSON File cannot be found. \n");
+          $data = [];
         }
-  
+
         return $data;
       } catch (Exception $exception) {
         throw new Exception($exception->getMessage() . "\n");

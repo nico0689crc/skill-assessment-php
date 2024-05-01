@@ -63,8 +63,12 @@
     private static function listBooks() {
       $books = Book::list();
 
-      foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
+      if(count($books) > 0){
+        foreach ($books as $book) {
+          echo "ID: {$book->getId()}, Book's Title: {$book->getName()}, ISBN: {$book->getIsbn()}, Publisher: {$book->getPublisher()}, Author: {$book->getAuthor()->getName()} \n";
+        }
+      } else {
+        echo self::setColorToText("There are any Book to list. \n", "RED");
       }
     }
 
@@ -82,7 +86,7 @@
       $book = Book::searchByID();
 
       if($book !== false){
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
+        echo "ID: {$book->getId()}, Book's Title: {$book->getName()}, ISBN: {$book->getIsbn()}, Publisher: {$book->getPublisher()}, Author: {$book->getAuthor()->getName()} \n";
       } else {
         echo self::setColorToText("Book could not be found. \n", "RED");
       }
@@ -93,8 +97,12 @@
     private static function listOtherResources() {
       $resources = OtherResource::list();
 
-      foreach ($resources as $resource) {
-        echo "ID: {$resource->id}, Resource's Name: {$resource->name}, Brand: {$resource->brand}, Description: {$resource->description} \n";
+      if(count($resources) > 0){
+        foreach ($resources as $resource) {
+          echo "ID: {$resource->getId()}, Resource's Name: {$resource->getName()}, Brand: {$resource->getBrand()}, Description: {$resource->getDescription()} \n";
+        }
+      } else {
+        echo self::setColorToText("There are any OtherResource to list. \n", "RED");
       }
     }
 
@@ -111,16 +119,24 @@
     private static function sortBooksAsc() {
       $books = Book::sort("ASC");
 
-      foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
+      if(count($books) > 0){
+        foreach ($books as $book) {
+          echo "ID: {$book->getId()}, Book's Title: {$book->getName()}, ISBN: {$book->getIsbn()}, Publisher: {$book->getPublisher()}, Author: {$book->getAuthor()->getName()} \n";
+        }
+      } else {
+        echo self::setColorToText("There are any Book to list sorted. \n", "RED");
       }
     }
 
     private static function sortBooksDesc() {
       $books = Book::sort("DESC");
 
-      foreach ($books as $book) {
-        echo "ID: {$book->id}, ISBN: {$book->isbn}, Book's Title: {$book->name}, ISBN: {$book->isbn}, Publisher: {$book->publisher}, Author: {$book->author->name} \n";
+      if(count($books) > 0){
+        foreach ($books as $book) {
+          echo "ID: {$book->getId()}, Book's Title: {$book->getName()}, ISBN: {$book->getIsbn()}, Publisher: {$book->getPublisher()}, Author: {$book->getAuthor()->getName()} \n";
+        }
+      } else {
+        echo self::setColorToText("There are any Book to list sorted. \n", "RED");
       }
     }
 

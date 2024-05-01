@@ -13,12 +13,12 @@
       $author = new Author(1, "Test Author");
 
       $book = new Book($id, $name, $isbn, $publisher, $author);
-      // Attempt to access a private property
+
       $errorMessage = '';
       try {
-          $isbn = $book->isbn; // Try to access a private property
-      } catch (Error $e) {
-          $errorMessage = $e->getMessage();
+        $isbn = $book->isbn; 
+      } catch (Error $error) {
+        $errorMessage = $error->getMessage();
       }
 
       $this->assertNotEmpty($errorMessage);
