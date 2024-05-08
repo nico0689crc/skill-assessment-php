@@ -1,4 +1,6 @@
 <?php 
+
+
   class Book extends LibraryResource {
     private static $entity = "BOOK";
     
@@ -103,7 +105,7 @@
       }
     }
 
-    public static function sort($type) {
+    public static function sort($type) : Array {
       $books = self::list();
 
       if($type == "ASC") {

@@ -1,1 +1,13 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "sdsasdasda",
+        "type": "BOOK",
+        "isbn": "asdsdaasd",
+        "publisher": "adsadsdsa",
+        "author": {
+            "id": 1,
+            "name": "dasdsadsa"
+        }
+    }
+]
