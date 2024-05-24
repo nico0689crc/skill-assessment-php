@@ -23,11 +23,11 @@
       return $this->type;
     }
 
-    abstract public static function list() : Array;
+    abstract protected static function list() : Array;
 
-    abstract public static function create() : void;
+    abstract protected static function create() : void;
 
-    abstract public static function delete() : void;
+    abstract protected static function delete() : void;
     
     protected static function saveResourcesToJson($resources) {
       try {

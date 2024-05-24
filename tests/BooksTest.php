@@ -24,8 +24,7 @@
       $this->assertNotEmpty($errorMessage);
       $this->assertStringContainsString('Cannot access private property', $errorMessage);
     }
-    
-    
+
     // It should create a Book object and access to its properties and heritage properties through their getters.
     public function testCreateBook() {
       $id = 1;
@@ -43,6 +42,5 @@
       $this->assertEquals($publisher, $book->getPublisher());
       $this->assertEquals($author, $book->getAuthor());
     }
-
   }
 ?>

@@ -1,6 +1,4 @@
 <?php 
-
-
   class Book extends LibraryResource {
     private static $entity = "BOOK";
     
@@ -109,13 +107,15 @@
       $books = self::list();
 
       if($type == "ASC") {
-        usort($books, function($a, $b) {
-          return $a->id - $b->id;
-        });
+        // usort($books, function($a, $b) {
+        //   return $a->name - $b->name;
+        // });
+        usort($books, 'compareByNameAsc');
       } else {
-        usort($books, function($a, $b) {
-          return $b->id - $a->id;
-        });
+        // usort($books, function($a, $b) {
+        //   return $b->name - $a->name;
+        // });
+        usort($books, 'compareByNameDesc');
       }
 
       return $books;
@@ -139,6 +139,14 @@
       } else {
         return false;
       }
+    }
+
+    function compareByNameAsc($a, $b) {
+      return strcmp($a->getName(), $b->getName());
+    }
+
+    function compareByNameDesc($a, $b) {
+      return strcmp($b->getName(), $a->getName());
     }
   }
 ?>

@@ -1,13 +1,31 @@
-[
-    {
-        "id": 1,
-        "name": "sdsasdasda",
+{
+    "1": {
+        "id": 2,
+        "name": "tsdsa",
         "type": "BOOK",
-        "isbn": "asdsdaasd",
-        "publisher": "adsadsdsa",
+        "isbn": "asddsa",
+        "publisher": "saddsa",
         "author": {
             "id": 1,
-            "name": "dasdsadsa"
+            "name": "sadsa"
         }
+    },
+    "2": {
+        "id": 3,
+        "name": "iadsaddas",
+        "type": "BOOK",
+        "isbn": "asdsda",
+        "publisher": "dsadsada",
+        "author": {
+            "id": 1,
+            "name": "adsdas"
+        }
+    },
+    "4": {
+        "id": 4,
+        "name": "ddsadsa",
+        "type": "OTHER",
+        "description": "dsadas",
+        "brand": "dsadsa"
     }
-]
+}
