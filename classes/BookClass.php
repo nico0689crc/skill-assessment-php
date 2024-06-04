@@ -48,7 +48,7 @@
       try {
         $resources = parent::readResourcesFromJson();
 
-        $id = count($resources) + 1;
+        $id = parent::currentLibraryResourceID();
         $name = readline(Application::setColorToText("Insert the Title of the book: ", "GREEN"));
         $isbn = readline(Application::setColorToText("Insert the ISBN of the book: ", "GREEN"));
         $publisher = readline(Application::setColorToText("Insert the Publisher of the book: ", "GREEN"));
@@ -137,14 +137,6 @@
       } else {
         return false;
       }
-    }
-
-    function compareByNameAsc($a, $b) {
-      return strcmp($a->getName(), $b->getName());
-    }
-
-    function compareByNameDesc($a, $b) {
-      return strcmp($b->getName(), $a->getName());
     }
   }
 ?>

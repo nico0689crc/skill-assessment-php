@@ -52,5 +52,20 @@
         throw new Exception($exception->getMessage() . "\n");
       }
     }
+
+    protected static function currentLibraryResourceID() {
+      try {
+        $resources = self::readResourcesFromJson();
+        $resources_size = count($resources);
+
+        $last_resource = $resources[$resources_size - 1];
+
+        $last_resource_id = (int)$last_resource['id'] + 1;
+
+        return $last_resource_id;
+      } catch (Exception $exception) {
+        throw new Exception($exception->getMessage() . "\n");
+      }
+    }
   }
 ?>

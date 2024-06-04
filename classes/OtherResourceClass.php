@@ -42,7 +42,7 @@
       try {
         $resources = parent::readResourcesFromJson();
 
-        $id = count($resources) + 1;
+        $id = parent::currentLibraryResourceID();;
         $name = readline(Application::setColorToText("Insert the Name of the resource: ", "GREEN"));
         $description = readline(Application::setColorToText("Insert the Description of the resource: ", "GREEN"));
         $brand = readline(Application::setColorToText("Insert the Brand of the resource: ", "GREEN"));
