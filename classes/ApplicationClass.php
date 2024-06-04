@@ -8,20 +8,20 @@
       echo self::setColorToText("*****        BOOK       *****\n", "GREEN");
       echo self::setColorToText("*****************************\n", "GREEN");
 
-      echo "** 1 - List Books - DONE \n";
-      echo "** 2 - Create Books - DONE \n";
-      echo "** 3 - Delete Book by ID - DONE \n";
+      echo "** 1 - List Books \n";
+      echo "** 2 - Create Books \n";
+      echo "** 3 - Delete Book by ID \n";
       echo "** 4 - Search Book by ID \n";
-      echo "** 5 - Sort Books in Ascending Order - DONE \n";
-      echo "** 6 - Sort Books in Descending Order - DONE \n";
+      echo "** 5 - Sort Books in Ascending Order \n";
+      echo "** 6 - Sort Books in Descending Order \n";
 
       echo self::setColorToText("*****************************\n", "GREEN");
       echo self::setColorToText("*****    RESOURECES     *****\n", "GREEN");
       echo self::setColorToText("*****************************\n", "GREEN");
 
-      echo "** 7 - List Other Resources - DONE \n";
-      echo "** 8 - Create Other Resource - DONE \n";
-      echo "** 9 - Delete Resource by ID - DONE \n";
+      echo "** 7 - List Other Resources \n";
+      echo "** 8 - Create Other Resource \n";
+      echo "** 9 - Delete Resource by ID \n";
 
       $option = readline(self::setColorToText("Enter your option: ", "YELLOW"));
 
@@ -54,7 +54,7 @@
           Application::deleteResource();
           break;
         default:
-          echo "Your selection did not match with any option. Bye asshole! \n";
+          echo "Your selection did not match with any option. \n";
       }
     }
 

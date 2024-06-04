@@ -107,15 +107,13 @@
       $books = self::list();
 
       if($type == "ASC") {
-        // usort($books, function($a, $b) {
-        //   return $a->name - $b->name;
-        // });
-        usort($books, 'compareByNameAsc');
+        usort($books, function($a, $b) {
+          return $a->id - $b->id;
+        });
       } else {
-        // usort($books, function($a, $b) {
-        //   return $b->name - $a->name;
-        // });
-        usort($books, 'compareByNameDesc');
+        usort($books, function($a, $b) {
+          return $b->id - $a->id;
+        });
       }
 
       return $books;

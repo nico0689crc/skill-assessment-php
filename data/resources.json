@@ -1,31 +1,60 @@
-{
-    "1": {
+[
+    {
+        "id": 1,
+        "name": "To Kill a Mockingbird",
+        "type": "BOOK",
+        "isbn": "978-0-06-112008-4",
+        "publisher": "J.B. Lippincott & Co.",
+        "author": {
+            "id": 1,
+            "name": "Harper Lee"
+        }
+    },
+    {
         "id": 2,
-        "name": "tsdsa",
+        "name": "1984",
         "type": "BOOK",
-        "isbn": "asddsa",
-        "publisher": "saddsa",
+        "isbn": "978-0-452-28423-4",
+        "publisher": "Secker & Warburg",
         "author": {
-            "id": 1,
-            "name": "sadsa"
+            "id": 2,
+            "name": "George Orwell"
         }
     },
-    "2": {
+    {
         "id": 3,
-        "name": "iadsaddas",
+        "name": "The Great Gatsby",
         "type": "BOOK",
-        "isbn": "asdsda",
-        "publisher": "dsadsada",
+        "isbn": "978-0-7432-7356-5",
+        "publisher": "Charles Scribner's Sons",
         "author": {
-            "id": 1,
-            "name": "adsdas"
+            "id": 3,
+            "name": "F. Scott Fitzgerald"
         }
     },
-    "4": {
+    {
         "id": 4,
-        "name": "ddsadsa",
+        "name": "MacBook Pro",
         "type": "OTHER",
-        "description": "dsadas",
-        "brand": "dsadsa"
+        "description": "Apple laptop with M1 chip",
+        "brand": "Apple"
+    },
+    {
+        "id": 5,
+        "name": "Kindle Paperwhite",
+        "type": "OTHER",
+        "description": "Amazon e-reader with a high-resolution display",
+        "brand": "Amazon"
+    },
+    {
+        "id": 6,
+        "name": "Libro 1",
+        "type": "BOOK",
+        "isbn": "123333",
+        "publisher": "Publisher 1",
+        "author": {
+            "id": 1,
+            "name": "Armando Paredes"
+        }
     }
-}
+]
